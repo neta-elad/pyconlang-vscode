@@ -1,0 +1,63 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Pyconlang",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [{
+				"name": "comment.part-of-speech.pycl",
+				"match": "(\\(\\w+\\.\\))"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.record.pycl",
+				"match": "\\b(entry|affix|template)\\b"
+			}]
+		},
+		"variables": {
+			"patterns": [{
+				"name": "variable.entry.pycl",
+				"match": "(<[^>]+>)"
+			}, {
+				"name": "variable.suffix.pycl",
+				"match": "(\\.\\S+)\\b"
+			}, {
+				"name": "variable.prefix.pycl",
+				"match": "\\b(\\S+\\.)"
+			}, {
+				"name": "variable.language.pycl",
+				"match": "(\\$)"
+			}]
+		},
+		"constants": {
+			"patterns": [{
+				"name": "constant.numeric.pycl",
+				"match": "(@\\S+)"
+			}]
+		},
+		"strings": {
+			"patterns": [{
+				"name": "string.proto.pycl",
+				"match": "(\\*\\w+)\\b"
+			}]
+		}
+	},
+	"scopeName": "source.pycl"
+}

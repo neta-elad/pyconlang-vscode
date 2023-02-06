@@ -1,0 +1,25 @@
+{
+  "name": "pyconlang",
+  "displayName": "Pyconlang",
+  "description": "Syntax highlighting for Pyconlang lexicon language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pycl",
+      "aliases": ["Pyconlang", "pycl"],
+      "extensions": [".pycl"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pycl",
+      "scopeName": "source.pycl",
+      "path": "./syntaxes/pycl.tmLanguage.json"
+    }]
+  }
+}
