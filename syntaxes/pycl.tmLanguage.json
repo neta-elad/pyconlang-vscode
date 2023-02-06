@@ -23,6 +23,9 @@
 			"patterns": [{
 				"name": "comment.part-of-speech.pycl",
 				"match": "(\\(\\w+\\.\\))"
+			}, {
+				"name": "comment.line.pycl",
+				"match": "(^#.*)"
 			}]
 		},
 		"keywords": {
