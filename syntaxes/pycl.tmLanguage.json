@@ -31,7 +31,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.record.pycl",
-				"match": "\\b(entry|affix|template)\\b"
+				"match": "\\b(entry|affix|template|include)\\b"
 			}]
 		},
 		"variables": {
@@ -59,6 +59,12 @@
 			"patterns": [{
 				"name": "string.proto.pycl",
 				"match": "(\\*\\w+)\\b"
+			}, {
+				"name": "string.single-quotes.pycl",
+				"match": "'.*?'"
+			}, {
+				"name": "string.double-quotes.pycl",
+				"match": "\".*?\""
 			}]
 		}
 	},

@@ -2,6 +2,9 @@
 
 All notable changes to the "pyconlang" extension will be documented in this file.
 
+## [0.0.4]
+- Include directive support
+
 ## [0.0.3]
 
 - Updated lock file
