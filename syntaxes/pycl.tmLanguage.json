@@ -31,7 +31,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.record.pycl",
-				"match": "\\b(entry|affix|template|include)\\b"
+				"match": "^(entry|affix|template|include|lang)\\b"
 			}]
 		},
 		"variables": {
@@ -51,14 +51,17 @@
 		},
 		"constants": {
 			"patterns": [{
-				"name": "constant.numeric.pycl",
+				"name": "constant.numeric.rule.pycl",
 				"match": "(@\\S+)"
+			}, {
+				"name": "constant.numeric.lang.pycl",
+				"match": "(%\\S+)"
 			}]
 		},
 		"strings": {
 			"patterns": [{
-				"name": "string.proto.pycl",
-				"match": "(\\*\\w+)\\b"
+				"name": "string.morpheme.pycl",
+				"match": "(\\*\\S+)"
 			}, {
 				"name": "string.single-quotes.pycl",
 				"match": "'.*?'"
