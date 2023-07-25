@@ -1,67 +1,103 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Pyconlang",
+	"scopeName": "source.pycl",
 	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		},
-		{
-			"include": "#variables"
-		},
-		{
-			"include": "#constants"
-		},
-		{
-			"include": "#comments"
-		}
+		{ "include": "#comments" }, 
+		{ "include": "#keywords" },
+		{ "include": "#affixes" },
+		{ "include": "#strings" },
+		{ "include": "#variable" },
+		{ "include": "#scopes" },
+		{ "include": "#part-of-speech" },
+		{ "include": "#lexeme" },
+		{ "include": "#template-name" },
+		{ "include": "#rule" }
 	],
 	"repository": {
 		"comments": {
 			"patterns": [{
-				"name": "comment.part-of-speech.pycl",
-				"match": "(\\(\\w+\\.\\))"
-			}, {
 				"name": "comment.line.pycl",
 				"match": "(^#.*)"
 			}]
 		},
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.record.pycl",
-				"match": "^(entry|affix|template|include|lang)\\b"
+		"part-of-speech": {
+			"name": "record.part-of-speech",
+			"begin": "\\(",
+			"end": "\\)",
+			"beginCaptures": {
+				"0": { "name": "punctuation.paren.open" }
+			},
+			"endCaptures": {
+				"0": { "name": "punctuation.paren.close" }
+			},
+			"patterns": [{ 
+				"name": "variable.parameter.part-of-speech.pycl", 
+				"match": "\\w+\\." 
 			}]
 		},
-		"variables": {
+		"keywords": {
 			"patterns": [{
-				"name": "variable.entry.pycl",
-				"match": "(<[^>]+>)"
+				"name": "keyword.control.record.pycl",
+				"match": "^(entry|affix|template|include|scope)\\b"
+			}]
+		},
+		"affixes": {
+			"patterns": [{
+				"name": "keyword.other.suffix.pycl",
+				"match": "(?<=\\.)[A-Za-z0-9-]+\\b"
 			}, {
-				"name": "variable.suffix.pycl",
-				"match": "(\\.\\S+)\\b"
-			}, {
-				"name": "variable.prefix.pycl",
-				"match": "\\b(\\S+\\.)"
-			}, {
+				"name": "keyword.other.prefix.pycl",
+				"match": "(?<!\\()\\b[A-Za-z0-9-]+(?=\\.)"
+			}]
+		},
+		"lexeme": {
+			"name": "record.lexeme",
+			"begin": "<",
+			"end": ">",
+			"beginCaptures": {
+				"0": { "name": "punctuation.angle.open" }
+			},
+			"endCaptures": {
+				"0": { "name": "punctuation.angle.close" }
+			},
+			"patterns": [{ 
+				"name": "entity.name.type.lexeme.pycl", 
+				"match": "[^>]+" 
+			}]
+		},
+		"template-name": {
+			"name": "template.name",
+			"patterns": [{
+				"name": "entity.name.function.template.name.pycl",
+				"match": "&[A-Za-z0-9-]+\\b"
+			}]
+		},
+		"variable": {
+			"name": "record.variable",
+			"patterns": [{
 				"name": "variable.language.pycl",
 				"match": "(\\$)"
 			}]
 		},
-		"constants": {
+		"rule": {
+			"name": "record.rule",
 			"patterns": [{
-				"name": "constant.numeric.rule.pycl",
-				"match": "(@\\S+)"
-			}, {
-				"name": "constant.numeric.lang.pycl",
-				"match": "(%\\S+)"
+				"name": "variable.other.constant.rule.pycl",
+				"match": "@[A-Za-z0-9-]+"
+			}]
+		},
+		"scopes": {
+			"name": "record.scope",
+			"patterns": [{
+				"name": "constant.character.escape.scope.pycl",
+				"match": "%[A-Za-z0-9-]*"
 			}]
 		},
 		"strings": {
 			"patterns": [{
 				"name": "string.morpheme.pycl",
-				"match": "(\\*\\S+)"
+				"match": "\\*[^\\s\\.]+"
 			}, {
 				"name": "string.single-quotes.pycl",
 				"match": "'.*?'"
@@ -70,6 +106,5 @@
 				"match": "\".*?\""
 			}]
 		}
-	},
-	"scopeName": "source.pycl"
+	}
 }
