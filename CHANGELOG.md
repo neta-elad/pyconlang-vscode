@@ -2,6 +2,9 @@
 
 All notable changes to the "pyconlang" extension will be documented in this file.
 
+## [0.0.7]
+- Fix inline comments
+
 ## [0.0.6]
 - Rename lang definitions to scope definitions
 - Saner parenthesis behavior

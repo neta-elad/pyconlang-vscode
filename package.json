@@ -4,7 +4,7 @@
   "displayName": "Pyconlang",
   "publisher": "Pyconlang",
   "description": "Syntax highlighting for Pyconlang lexicon language",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "repository": {
     "type": "git",

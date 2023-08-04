@@ -18,7 +18,7 @@
 		"comments": {
 			"patterns": [{
 				"name": "comment.line.pycl",
-				"match": "(^#.*)"
+				"match": "(#.*)"
 			}]
 		},
 		"part-of-speech": {
